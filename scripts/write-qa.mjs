@@ -29,7 +29,7 @@ for (const name of ['Shiguang-Album-1.0.0-x64-portable.exe', 'Shiguang-Album-1.0
 await writeFile(path.join(qaDirectory, 'artifacts.json'), JSON.stringify({ version: '1.0.0', artifacts }, null, 2) + '\n');
 await writeFile('docs/QA.md', `# 拾光相册 v1.0.0 验收记录
 
-验收环境：Windows 11 x64（10.0.26200），Electron 44.6.0。目标系统为 Windows 10 / 11 x64；Windows 10 未在独立机器上实测。仅使用公开样例和生成的测试图片、音频，没有使用个人相册。
+验收环境：Windows 11 x64（10.0.26200），Electron 44.6.0。目标系统为 Windows 10 / 11 x64；[Electron 官方平台说明](https://github.com/electron/electron#platform-support)列出 Windows 10 及以上支持。本次 Windows 10 未在独立机器上实测。仅使用公开样例和生成的测试图片、音频，没有使用个人相册。
 
 ## 结果
 

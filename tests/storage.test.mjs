@@ -35,6 +35,14 @@ test('相册隔离、去重、坏文件和原件移动', async t => {
   assert.equal(store.snapshot().albums.find(a => a.id === second).photos.length, 0);
   assert.equal((await store.importPaths(second, [duplicate])).imported, 1);
   const directoryFiles = await readdir(path.join(store.albumsDirectory, first)); assert.equal(directoryFiles.length, 2);
+  const folderA = path.join(root, '同名来源甲'), folderB = path.join(root, '同名来源乙');
+  await Promise.all([mkdir(folderA), mkdir(folderB)]);
+  const sameNameA = path.join(folderA, '照片.jpg'), sameNameB = path.join(folderB, '照片.jpg');
+  await Promise.all([writeFile(sameNameA, 'valid:distinct-a'), writeFile(sameNameB, 'valid:distinct-b')]);
+  assert.equal((await store.importPaths(first, [sameNameA, sameNameB])).imported, 2);
+  const sameNames = store.snapshot().albums.find(a => a.id === first).photos.slice(-2);
+  assert.deepEqual(sameNames.map(photo => photo.name), ['照片.jpg', '照片.jpg']); assert.notEqual(sameNames[0].id, sameNames[1].id);
+  assert.deepEqual(await Promise.all(sameNames.map(photo => readFile(store.mediaPath(first, photo.id, 'display'), 'utf8'))), ['valid:distinct-a', 'valid:distinct-b']);
 });
 
 test('重启保存顺序、封面、配乐和设置；移除不修改原文件', async t => {
@@ -86,6 +94,10 @@ test('磁盘不足和索引提交失败不污染已有相册', async t => {
   const result = await store.importPaths(id, [await file('新图.jpg')]); assert.equal(result.imported, 0); assert.equal(result.failed[0].reason, '磁盘空间不足');
   assert.deepEqual(store.snapshot(), originalState); store.ensureSpace = ensure;
   await mkdir(store.manifest + '.tmp'); await assert.rejects(store.renameAlbum(id, '不应提交的名字')); assert.deepEqual(store.snapshot(), originalState);
+  const existingFiles = (await readdir(path.join(store.albumsDirectory, id))).sort();
+  const notCommitted = await file('提交失败的新图.jpg');
+  await assert.rejects(store.importPaths(id, [notCommitted])); assert.deepEqual(store.snapshot(), originalState);
+  assert.deepEqual((await readdir(path.join(store.albumsDirectory, id))).sort(), existingFiles); await access(notCommitted);
   await rm(assertWithin(store.root, store.manifest + '.tmp'), { recursive: true });
   await store.renameAlbum(id, '队列仍可使用'); assert.equal(store.snapshot().albums[0].name, '队列仍可使用');
 });
