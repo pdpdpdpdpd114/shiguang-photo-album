@@ -1,0 +1,101 @@
+{
+  "name": "shiguang-photo-album",
+  "version": "1.0.0",
+  "description": "拾光相册 — 离线照片、音乐与电影般的回忆",
+  "author": "pdpdpdpdpd114",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist-electron/electron/main.js",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "node scripts/build.mjs",
+    "start": "electron .",
+    "test": "node --test tests/*.test.mjs",
+    "test:desktop": "node scripts/test-desktop.mjs",
+    "test:soak": "node scripts/test-desktop.mjs --soak",
+    "dist": "npm run build && electron-builder --win portable nsis --x64 --publish never",
+    "checksums": "node scripts/checksums.mjs"
+  },
+  "build": {
+    "electronDist": "node_modules/electron/dist",
+    "appId": "io.github.pdpdpdpdpd114.shiguangphotoalbum",
+    "productName": "拾光相册",
+    "directories": {
+      "output": "release",
+      "buildResources": "resources"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*",
+      "resources/demo/**/*",
+      "resources/icon.ico",
+      "resources/icon.png",
+      "resources/THIRD-PARTY-NOTICES.md",
+      "LICENSE",
+      "README.md",
+      "package.json"
+    ],
+    "asar": true,
+    "extraResources": [
+      { "from": "resources/licenses", "to": "licenses" },
+      { "from": "resources/THIRD-PARTY-NOTICES.md", "to": "THIRD-PARTY-NOTICES.md" },
+      { "from": "resources/third-party-source", "to": "third-party-source" },
+      { "from": "resources/demo/CREDITS.md", "to": "demo/CREDITS.md" },
+      { "from": "README.md", "to": "使用说明.md" }
+    ],
+    "asarUnpack": [
+      "node_modules/libheif-js/**/*",
+      "dist-electron/electron/media-worker.cjs"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "resources/icon.ico",
+      "signAndEditExecutable": true
+    },
+    "nsis": {
+      "artifactName": "Shiguang-Album-${version}-${arch}-nsis.${ext}",
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "deleteAppDataOnUninstall": false,
+      "installerLanguages": [
+        "zh_CN",
+        "en_US"
+      ]
+    },
+    "portable": {
+      "artifactName": "Shiguang-Album-${version}-${arch}-portable.${ext}",
+      "requestExecutionLevel": "user"
+    }
+  },
+  "dependencies": {
+    "heic-convert": "2.1.0",
+    "lucide-react": "1.52.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "electron": "44.6.0",
+    "electron-builder": "26.15.3",
+    "typescript": "7.0.2",
+    "vite": "8.3.3"
+  }
+}

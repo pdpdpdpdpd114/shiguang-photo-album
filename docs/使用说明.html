@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>拾光相册 · 使用说明</title>
+<style>
+:root{color-scheme:dark;font-family:"Microsoft YaHei UI","Microsoft YaHei",sans-serif;background:#101718;color:#e7ece4;line-height:1.85}*{box-sizing:border-box}body{max-width:980px;margin:auto;padding:48px 28px 80px}a{color:#b7d3a6}header{border-bottom:1px solid #334039;padding-bottom:28px}.eyebrow{color:#aec79d;letter-spacing:.18em;font-size:12px}h1{font-size:40px;line-height:1.4;margin:8px 0}h2{font-size:23px;margin:36px 0 14px;color:#c9ddbc}p,li{color:#c3cdc6}strong{color:#e8efdf}code,kbd{background:#27332e;padding:3px 7px;border-radius:5px;font-family:Consolas,"Microsoft YaHei",monospace;overflow-wrap:anywhere}.cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:24px 0}.card{border:1px solid #334039;border-radius:14px;padding:20px;background:#192221}.card h2{font-size:19px;margin:0 0 10px}figure{margin:28px 0}img{display:block;width:100%;border-radius:14px;border:1px solid #334039}figcaption{font-size:13px;color:#85998a;margin-top:8px}table{border-collapse:collapse;width:100%;font-size:15px}th,td{text-align:left;padding:12px 14px;border-bottom:1px solid #344139}th{color:#d2e3c5;background:#1c2722}ol{padding-left:24px}li{padding-left:6px;margin:12px 0}.note{border-left:3px solid #b2ce9f;background:#1b2923;padding:14px 20px;border-radius:0 10px 10px 0}footer{border-top:1px solid #334039;margin-top:42px;padding-top:20px;font-size:13px;color:#85998a}@media(max-width:650px){body{padding:28px 18px 50px}.cards{grid-template-columns:1fr}h1{font-size:32px}table{font-size:13px}th,td{padding:9px}}
+</style>
+<header><div class="eyebrow">SHIGUANG ALBUM / v1.0.0</div><h1>拾光相册</h1><p>把照片装进相册，配上一首喜欢的歌，让回忆慢慢播放。</p><p>Windows 10 / 11 · 64 位 · 离线使用</p></header>
+<div class="cards">
+<section class="card"><h2>直接打开</h2><p>双击 <code>Shiguang-Album-1.0.0-x64-portable.exe</code>。不需要安装其他运行环境。</p></section>
+<section class="card"><h2>安装到电脑</h2><p>打开 <code>Shiguang-Album-1.0.0-x64-nsis.exe</code>，选择安装位置。安装后使用桌面或开始菜单的“拾光相册”快捷方式。</p></section>
+</div>
+<p class="note">首次打开已经准备了“山海之间”示例相册，点“播放我的回忆”就能体验。此次交付是本机文件，GitHub 发布暂缓。首版程序未数字签名，随附 <code>SHA256SUMS.txt</code> 供核对文件。</p>
+<figure><img src="screenshots/home.png" alt="拾光相册首页，绿色界面与山海之间示例相册"><figcaption>首次打开的示例画面</figcaption></figure>
+<h2>做一本自己的相册</h2>
+<ol>
+<li><strong>新建：</strong>在首页点右上角“新建相册”，输入名称。</li>
+<li><strong>导入：</strong>进入相册，点“添加照片”批量选择图片，或点“导入文件夹”读取整个文件夹。也可以将照片或文件夹拖进窗口。</li>
+<li><strong>整理：</strong>拖动缩略图调整顺序，也可以用前移、后移按钮。点“选择照片”后可批量移除，选中一张照片可设为封面；相册名称旁的编辑按钮可重命名。</li>
+<li><strong>配乐：</strong>右侧点“给回忆配一首歌”，选择一首本机音乐，调节音量或静音。</li>
+<li><strong>动效：</strong>选择“温馨时光”“电影记忆”或“闪耀瞬间”，再选固定效果或“随心切换”。设定每张停留 3–30 秒，选择完整显示或铺满画面。</li>
+<li><strong>播放：</strong>点“开始放映”，或点击任意照片从这一张播放。底部有暂停、切换照片、随机播放、动效和全屏按钮。</li>
+</ol>
+<p>关闭后会保存照片、配乐、排序和播放设置。重新打开停在相册首页。</p>
+<h2>播放快捷键</h2>
+<table><thead><tr><th>按键</th><th>操作</th></tr></thead><tbody><tr><td><kbd>空格</kbd></td><td>暂停 / 继续</td></tr><tr><td><kbd>←</kbd> <kbd>→</kbd></td><td>上一张 / 下一张</td></tr><tr><td><kbd>F</kbd></td><td>进入 / 退出全屏</td></tr><tr><td><kbd>Esc</kbd></td><td>先退出全屏，再返回相册</td></tr></tbody></table>
+<h2>照片、音乐与动效</h2>
+<table><tbody><tr><th>照片</th><td>JPG / JPEG、PNG、WebP、GIF、BMP、AVIF、HEIC / HEIF</td></tr><tr><th>音乐</th><td>MP3、WAV、OGG、M4A，每个相册一首，循环播放</td></tr><tr><th>十种动效</th><td>淡化、横向滑动、纵向滑动、缩放、慢推拉、立体翻页、立方体旋转、横向百叶、纵向百叶、棋盘格显现</td></tr></tbody></table>
+<p>默认停留 5 秒、完整显示照片、顺序循环播放。随机动效会在当前主题里选择，并避免连续重复。系统启用“减少动态效果”后，自动使用柔和淡化。</p>
+<p>HEIC 会在后台转为播放用 JPEG，原件保留；转换组件已随软件附带。导入时可看到进度并取消，损坏或转换失败的照片会单独提示。GIF 保留动画。</p>
+<p>单张照片最大 200 MB、1 亿像素，单次最多导入 20000 张。当前相册内按文件内容跳过重复照片，不同相册可以收藏同一张。M4A 的特殊编码或受保护文件可能无法播放；HEIC 播放预览不提供 HDR 或 Live Photo 视频。</p>
+<h2>你的照片保存在哪里</h2>
+<p>照片和音乐会复制到本机相册库：<code>%APPDATA%\ShiguangPhotoAlbum\library</code>。在文件资源管理器地址栏粘贴这个路径即可查看。</p>
+<p>导入后移动原文件仍能播放；移除照片或相册只处理相册库里的副本。便携版和安装版共用此目录，卸载会保留相册数据。</p>
+<p class="note"><strong>备份：</strong>先关闭程序，复制整个 <code>library</code> 文件夹到安全位置。换电脑时先打开一次程序再关闭，用备份替换另一台电脑的 <code>library</code> 文件夹，重新打开即可。</p>
+<p>索引有自动备份。索引读取失败时会尝试恢复最近一次备份；两份都损坏时会保留数据并停止打开。此时先备份整个相册库，再处理恢复，避免直接删除数据。</p>
+<h2>常见情况</h2>
+<p><strong>照片导入失败：</strong>查看提示的文件名，确认图片没有损坏、大小符合限制，磁盘有足够空间。成功导入的其他照片仍会保留。</p>
+<p><strong>音乐没有声音：</strong>检查音量与静音状态，暂停后继续；无法播放时换用普通 MP3 或 WAV 文件。</p>
+<p><strong>更新或重装：</strong>先关闭拾光相册，再运行安装程序；建议更新前备份相册库。此版本不含自动更新。</p>
+<h2>许可与源码</h2>
+<p>完整源码包为 <code>Shiguang-Album-1.0.0-source.zip</code>，采用 MIT 许可。源码中的 README 提供构建说明。第三方组件、HEIC 对应源码和许可随程序附带，安装目录的 <code>resources</code> 中可查看。</p>
+<p>示例照片来自 Unsplash，仅用于首次体验。程序不上传照片或音乐，不含云同步、遥测、登录或在线播放。</p>
+<footer>拾光相册 v1.0.0 · 本机文件交付 · 具体测试结果见随附《验收记录》。</footer>
+</html>

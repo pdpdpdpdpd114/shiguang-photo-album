@@ -1,0 +1,11 @@
+node_modules/
+dist/
+dist-electron/
+release/
+.test-data/
+.cache/
+test-results/
+*.log
+*.tmp
+*.bak
+.env*

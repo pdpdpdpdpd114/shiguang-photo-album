@@ -1,0 +1,7 @@
+* text=auto
+*.jpg binary
+*.png binary
+*.ico binary
+*.gz binary
+*.zip binary
+resources/licenses/** -diff -text
