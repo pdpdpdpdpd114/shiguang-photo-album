@@ -1,0 +1,1349 @@
+{
+  "packaged": true,
+  "version": "1.0.0",
+  "checks": [
+    {
+      "check": "隔离页面与桌面接口",
+      "passed": true
+    },
+    {
+      "check": "首次启动与六张离线示例",
+      "passed": true
+    },
+    {
+      "check": "中文文件、重名重复、损坏文件与原件移动",
+      "passed": true
+    },
+    {
+      "check": "照片与音乐持久化",
+      "passed": true
+    },
+    {
+      "check": "图片解码与竖图方向：EXIF-旋转竖图.jpg",
+      "passed": true,
+      "detail": {
+        "width": 480,
+        "height": 640
+      }
+    },
+    {
+      "check": "图片解码与竖图方向：动态图片.gif",
+      "passed": true,
+      "detail": {
+        "width": 480,
+        "height": 640
+      }
+    },
+    {
+      "check": "图片解码与竖图方向：竖图方向-avif.avif",
+      "passed": true,
+      "detail": {
+        "width": 480,
+        "height": 640
+      }
+    },
+    {
+      "check": "图片解码与竖图方向：竖图方向-bmp.bmp",
+      "passed": true,
+      "detail": {
+        "width": 480,
+        "height": 640
+      }
+    },
+    {
+      "check": "图片解码与竖图方向：竖图方向-gif.gif",
+      "passed": true,
+      "detail": {
+        "width": 480,
+        "height": 640
+      }
+    },
+    {
+      "check": "图片解码与竖图方向：竖图方向-jpg.jpg",
+      "passed": true,
+      "detail": {
+        "width": 480,
+        "height": 640
+      }
+    },
+    {
+      "check": "图片解码与竖图方向：竖图方向-png.png",
+      "passed": true,
+      "detail": {
+        "width": 480,
+        "height": 640
+      }
+    },
+    {
+      "check": "图片解码与竖图方向：竖图方向-webp.webp",
+      "passed": true,
+      "detail": {
+        "width": 480,
+        "height": 640
+      }
+    },
+    {
+      "check": "HEIC 转换失败单独提示",
+      "passed": true
+    },
+    {
+      "check": "HEIC 离线转换：ios18-IMG_2314.HEIC",
+      "passed": true,
+      "detail": {
+        "width": 5712,
+        "height": 4284
+      }
+    },
+    {
+      "check": "HEIC 离线转换：iphone-15-pro.heic",
+      "passed": true,
+      "detail": {
+        "width": 3024,
+        "height": 4032
+      }
+    },
+    {
+      "check": "HEIC 离线转换：libheif-example.heic",
+      "passed": true,
+      "detail": {
+        "width": 1280,
+        "height": 854
+      }
+    },
+    {
+      "check": "导入结束后释放 HEIC 转换线程与图片解码进程",
+      "passed": true
+    },
+    {
+      "check": "本地音乐解码与分段读取",
+      "passed": true,
+      "detail": {
+        "length": 3,
+        "range": 206
+      }
+    },
+    {
+      "check": "动效：fade",
+      "passed": true
+    },
+    {
+      "check": "动效：slide-x",
+      "passed": true
+    },
+    {
+      "check": "动效：slide-y",
+      "passed": true
+    },
+    {
+      "check": "动效：zoom",
+      "passed": true
+    },
+    {
+      "check": "动效：kenburns",
+      "passed": true
+    },
+    {
+      "check": "动效：flip",
+      "passed": true
+    },
+    {
+      "check": "动效：cube",
+      "passed": true
+    },
+    {
+      "check": "动效：blinds-x",
+      "passed": true
+    },
+    {
+      "check": "动效：blinds-y",
+      "passed": true
+    },
+    {
+      "check": "动效：mosaic",
+      "passed": true
+    },
+    {
+      "check": "暂停、继续与四十次快速切换",
+      "passed": true
+    },
+    {
+      "check": "二十四次重叠切换清理旧动画",
+      "passed": true
+    },
+    {
+      "check": "减少动态效果时柔和淡化",
+      "passed": true
+    },
+    {
+      "check": "退出后清理动画与计时器",
+      "passed": true
+    },
+    {
+      "check": "开始放映时停止整理页的音乐试听",
+      "passed": true
+    },
+    {
+      "check": "音乐实际播放、循环、同步暂停恢复、音量与静音",
+      "passed": true
+    },
+    {
+      "check": "桌面全屏进入与退出",
+      "passed": true
+    },
+    {
+      "check": "500 张混合图片持续播放 30 分钟",
+      "passed": true,
+      "detail": {
+        "seconds": 1801,
+        "transitions": 485,
+        "samples": [
+          {
+            "seconds": 30,
+            "playing": true,
+            "index": 298,
+            "phase": "hold",
+            "transitions": 8,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "slide-x",
+            "memory": {
+              "workingSetSize": 139136,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 54260
+            },
+            "totalPrivateBytes": 974352
+          },
+          {
+            "seconds": 60,
+            "playing": true,
+            "index": 479,
+            "phase": "hold",
+            "transitions": 16,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "flip",
+            "memory": {
+              "workingSetSize": 140492,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 56368
+            },
+            "totalPrivateBytes": 619976
+          },
+          {
+            "seconds": 90,
+            "playing": true,
+            "index": 27,
+            "phase": "hold",
+            "transitions": 24,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "slide-y",
+            "memory": {
+              "workingSetSize": 140468,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 56008
+            },
+            "totalPrivateBytes": 699548
+          },
+          {
+            "seconds": 120,
+            "playing": true,
+            "index": 414,
+            "phase": "hold",
+            "transitions": 32,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "mosaic",
+            "memory": {
+              "workingSetSize": 140992,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 57612
+            },
+            "totalPrivateBytes": 914872
+          },
+          {
+            "seconds": 150,
+            "playing": true,
+            "index": 308,
+            "phase": "hold",
+            "transitions": 40,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "mosaic",
+            "memory": {
+              "workingSetSize": 138816,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 55964
+            },
+            "totalPrivateBytes": 800816
+          },
+          {
+            "seconds": 180,
+            "playing": true,
+            "index": 437,
+            "phase": "hold",
+            "transitions": 48,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "blinds-y",
+            "memory": {
+              "workingSetSize": 139796,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 55876
+            },
+            "totalPrivateBytes": 797416
+          },
+          {
+            "seconds": 210,
+            "playing": true,
+            "index": 210,
+            "phase": "hold",
+            "transitions": 56,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "slide-y",
+            "memory": {
+              "workingSetSize": 139876,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 56152
+            },
+            "totalPrivateBytes": 864216
+          },
+          {
+            "seconds": 240,
+            "playing": true,
+            "index": 62,
+            "phase": "hold",
+            "transitions": 64,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "mosaic",
+            "memory": {
+              "workingSetSize": 137884,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 58044
+            },
+            "totalPrivateBytes": 791460
+          },
+          {
+            "seconds": 270,
+            "playing": true,
+            "index": 6,
+            "phase": "hold",
+            "transitions": 72,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "cube",
+            "memory": {
+              "workingSetSize": 138180,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 59740
+            },
+            "totalPrivateBytes": 1013500
+          },
+          {
+            "seconds": 300,
+            "playing": true,
+            "index": 267,
+            "phase": "transition",
+            "transitions": 80,
+            "layers": 2,
+            "animations": 2,
+            "cache": 3,
+            "hasTimer": false,
+            "failed": 0,
+            "effect": "slide-x",
+            "memory": {
+              "workingSetSize": 145108,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 63256
+            },
+            "totalPrivateBytes": 837072
+          },
+          {
+            "seconds": 330,
+            "playing": true,
+            "index": 445,
+            "phase": "transition",
+            "transitions": 88,
+            "layers": 2,
+            "animations": 2,
+            "cache": 3,
+            "hasTimer": false,
+            "failed": 0,
+            "effect": "zoom",
+            "memory": {
+              "workingSetSize": 143072,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 61616
+            },
+            "totalPrivateBytes": 994816
+          },
+          {
+            "seconds": 360,
+            "playing": true,
+            "index": 38,
+            "phase": "hold",
+            "transitions": 97,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "blinds-x",
+            "memory": {
+              "workingSetSize": 134344,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 55716
+            },
+            "totalPrivateBytes": 772824
+          },
+          {
+            "seconds": 390,
+            "playing": true,
+            "index": 41,
+            "phase": "hold",
+            "transitions": 105,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "flip",
+            "memory": {
+              "workingSetSize": 133480,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 55408
+            },
+            "totalPrivateBytes": 822956
+          },
+          {
+            "seconds": 420,
+            "playing": true,
+            "index": 354,
+            "phase": "hold",
+            "transitions": 113,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "blinds-y",
+            "memory": {
+              "workingSetSize": 136100,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 56384
+            },
+            "totalPrivateBytes": 1113092
+          },
+          {
+            "seconds": 450,
+            "playing": true,
+            "index": 301,
+            "phase": "hold",
+            "transitions": 121,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "flip",
+            "memory": {
+              "workingSetSize": 140680,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 61308
+            },
+            "totalPrivateBytes": 795016
+          },
+          {
+            "seconds": 480,
+            "playing": true,
+            "index": 128,
+            "phase": "hold",
+            "transitions": 129,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "zoom",
+            "memory": {
+              "workingSetSize": 133048,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 55864
+            },
+            "totalPrivateBytes": 753864
+          },
+          {
+            "seconds": 510,
+            "playing": true,
+            "index": 73,
+            "phase": "hold",
+            "transitions": 137,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "flip",
+            "memory": {
+              "workingSetSize": 133176,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 57424
+            },
+            "totalPrivateBytes": 591128
+          },
+          {
+            "seconds": 540,
+            "playing": true,
+            "index": 115,
+            "phase": "hold",
+            "transitions": 145,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "flip",
+            "memory": {
+              "workingSetSize": 136276,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 58080
+            },
+            "totalPrivateBytes": 677592
+          },
+          {
+            "seconds": 570,
+            "playing": true,
+            "index": 256,
+            "phase": "hold",
+            "transitions": 153,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "blinds-x",
+            "memory": {
+              "workingSetSize": 134556,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 59168
+            },
+            "totalPrivateBytes": 986944
+          },
+          {
+            "seconds": 600,
+            "playing": true,
+            "index": 393,
+            "phase": "hold",
+            "transitions": 161,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "flip",
+            "memory": {
+              "workingSetSize": 136732,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 59412
+            },
+            "totalPrivateBytes": 789020
+          },
+          {
+            "seconds": 630,
+            "playing": true,
+            "index": 422,
+            "phase": "transition",
+            "transitions": 169,
+            "layers": 2,
+            "animations": 2,
+            "cache": 3,
+            "hasTimer": false,
+            "failed": 0,
+            "effect": "zoom",
+            "memory": {
+              "workingSetSize": 132864,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 56172
+            },
+            "totalPrivateBytes": 824024
+          },
+          {
+            "seconds": 660,
+            "playing": true,
+            "index": 495,
+            "phase": "transition",
+            "transitions": 177,
+            "layers": 2,
+            "animations": 2,
+            "cache": 3,
+            "hasTimer": false,
+            "failed": 0,
+            "effect": "slide-x",
+            "memory": {
+              "workingSetSize": 140120,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 58568
+            },
+            "totalPrivateBytes": 642424
+          },
+          {
+            "seconds": 690,
+            "playing": true,
+            "index": 240,
+            "phase": "hold",
+            "transitions": 186,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "blinds-x",
+            "memory": {
+              "workingSetSize": 131968,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 57112
+            },
+            "totalPrivateBytes": 994652
+          },
+          {
+            "seconds": 720,
+            "playing": true,
+            "index": 428,
+            "phase": "hold",
+            "transitions": 194,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "slide-x",
+            "memory": {
+              "workingSetSize": 135904,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 58516
+            },
+            "totalPrivateBytes": 882380
+          },
+          {
+            "seconds": 750,
+            "playing": true,
+            "index": 352,
+            "phase": "hold",
+            "transitions": 202,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "slide-y",
+            "memory": {
+              "workingSetSize": 133428,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 55596
+            },
+            "totalPrivateBytes": 732944
+          },
+          {
+            "seconds": 780,
+            "playing": true,
+            "index": 381,
+            "phase": "hold",
+            "transitions": 210,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "flip",
+            "memory": {
+              "workingSetSize": 133364,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 56516
+            },
+            "totalPrivateBytes": 826844
+          },
+          {
+            "seconds": 810,
+            "playing": true,
+            "index": 133,
+            "phase": "hold",
+            "transitions": 218,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "mosaic",
+            "memory": {
+              "workingSetSize": 135384,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 57812
+            },
+            "totalPrivateBytes": 825676
+          },
+          {
+            "seconds": 840,
+            "playing": true,
+            "index": 261,
+            "phase": "hold",
+            "transitions": 226,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "blinds-x",
+            "memory": {
+              "workingSetSize": 133988,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 58080
+            },
+            "totalPrivateBytes": 871308
+          },
+          {
+            "seconds": 870,
+            "playing": true,
+            "index": 185,
+            "phase": "hold",
+            "transitions": 234,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "slide-y",
+            "memory": {
+              "workingSetSize": 134464,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 58368
+            },
+            "totalPrivateBytes": 884968
+          },
+          {
+            "seconds": 900,
+            "playing": true,
+            "index": 360,
+            "phase": "transition",
+            "transitions": 242,
+            "layers": 2,
+            "animations": 2,
+            "cache": 3,
+            "hasTimer": false,
+            "failed": 0,
+            "effect": "zoom",
+            "memory": {
+              "workingSetSize": 132464,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 55456
+            },
+            "totalPrivateBytes": 793132
+          },
+          {
+            "seconds": 930,
+            "playing": true,
+            "index": 49,
+            "phase": "transition",
+            "transitions": 250,
+            "layers": 2,
+            "animations": 2,
+            "cache": 3,
+            "hasTimer": false,
+            "failed": 0,
+            "effect": "slide-y",
+            "memory": {
+              "workingSetSize": 135424,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 57368
+            },
+            "totalPrivateBytes": 735724
+          },
+          {
+            "seconds": 960,
+            "playing": true,
+            "index": 105,
+            "phase": "hold",
+            "transitions": 259,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "zoom",
+            "memory": {
+              "workingSetSize": 135276,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 58100
+            },
+            "totalPrivateBytes": 784364
+          },
+          {
+            "seconds": 990,
+            "playing": true,
+            "index": 306,
+            "phase": "hold",
+            "transitions": 267,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "blinds-x",
+            "memory": {
+              "workingSetSize": 136424,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 59264
+            },
+            "totalPrivateBytes": 697356
+          },
+          {
+            "seconds": 1020,
+            "playing": true,
+            "index": 366,
+            "phase": "hold",
+            "transitions": 275,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "slide-y",
+            "memory": {
+              "workingSetSize": 136068,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 58924
+            },
+            "totalPrivateBytes": 771332
+          },
+          {
+            "seconds": 1050,
+            "playing": true,
+            "index": 323,
+            "phase": "hold",
+            "transitions": 283,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "mosaic",
+            "memory": {
+              "workingSetSize": 136652,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 57592
+            },
+            "totalPrivateBytes": 844376
+          },
+          {
+            "seconds": 1080,
+            "playing": true,
+            "index": 384,
+            "phase": "hold",
+            "transitions": 291,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "mosaic",
+            "memory": {
+              "workingSetSize": 134916,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 57104
+            },
+            "totalPrivateBytes": 1074564
+          },
+          {
+            "seconds": 1110,
+            "playing": true,
+            "index": 313,
+            "phase": "hold",
+            "transitions": 299,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "flip",
+            "memory": {
+              "workingSetSize": 135540,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 58000
+            },
+            "totalPrivateBytes": 592172
+          },
+          {
+            "seconds": 1140,
+            "playing": true,
+            "index": 448,
+            "phase": "hold",
+            "transitions": 307,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "blinds-x",
+            "memory": {
+              "workingSetSize": 134480,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 59296
+            },
+            "totalPrivateBytes": 665400
+          },
+          {
+            "seconds": 1170,
+            "playing": true,
+            "index": 34,
+            "phase": "hold",
+            "transitions": 315,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "blinds-y",
+            "memory": {
+              "workingSetSize": 138276,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 60796
+            },
+            "totalPrivateBytes": 644696
+          },
+          {
+            "seconds": 1200,
+            "playing": true,
+            "index": 398,
+            "phase": "transition",
+            "transitions": 323,
+            "layers": 2,
+            "animations": 2,
+            "cache": 3,
+            "hasTimer": false,
+            "failed": 0,
+            "effect": "flip",
+            "memory": {
+              "workingSetSize": 133880,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 54976
+            },
+            "totalPrivateBytes": 825748
+          },
+          {
+            "seconds": 1230,
+            "playing": true,
+            "index": 465,
+            "phase": "transition",
+            "transitions": 331,
+            "layers": 2,
+            "animations": 2,
+            "cache": 3,
+            "hasTimer": false,
+            "failed": 0,
+            "effect": "zoom",
+            "memory": {
+              "workingSetSize": 139672,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 58284
+            },
+            "totalPrivateBytes": 751380
+          },
+          {
+            "seconds": 1260,
+            "playing": true,
+            "index": 276,
+            "phase": "hold",
+            "transitions": 340,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "slide-y",
+            "memory": {
+              "workingSetSize": 132740,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 56892
+            },
+            "totalPrivateBytes": 852584
+          },
+          {
+            "seconds": 1290,
+            "playing": true,
+            "index": 55,
+            "phase": "hold",
+            "transitions": 348,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "mosaic",
+            "memory": {
+              "workingSetSize": 138084,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 61112
+            },
+            "totalPrivateBytes": 996492
+          },
+          {
+            "seconds": 1320,
+            "playing": true,
+            "index": 392,
+            "phase": "hold",
+            "transitions": 356,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "blinds-y",
+            "memory": {
+              "workingSetSize": 136044,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 60884
+            },
+            "totalPrivateBytes": 574104
+          },
+          {
+            "seconds": 1350,
+            "playing": true,
+            "index": 169,
+            "phase": "hold",
+            "transitions": 364,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "mosaic",
+            "memory": {
+              "workingSetSize": 142324,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 63616
+            },
+            "totalPrivateBytes": 696100
+          },
+          {
+            "seconds": 1380,
+            "playing": true,
+            "index": 478,
+            "phase": "hold",
+            "transitions": 372,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "blinds-y",
+            "memory": {
+              "workingSetSize": 139832,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 62680
+            },
+            "totalPrivateBytes": 1100000
+          },
+          {
+            "seconds": 1410,
+            "playing": true,
+            "index": 205,
+            "phase": "hold",
+            "transitions": 380,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "flip",
+            "memory": {
+              "workingSetSize": 133328,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 56220
+            },
+            "totalPrivateBytes": 674812
+          },
+          {
+            "seconds": 1440,
+            "playing": true,
+            "index": 476,
+            "phase": "hold",
+            "transitions": 388,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "slide-x",
+            "memory": {
+              "workingSetSize": 135628,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 58692
+            },
+            "totalPrivateBytes": 971192
+          },
+          {
+            "seconds": 1470,
+            "playing": true,
+            "index": 410,
+            "phase": "hold",
+            "transitions": 396,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "flip",
+            "memory": {
+              "workingSetSize": 135456,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 58000
+            },
+            "totalPrivateBytes": 851628
+          },
+          {
+            "seconds": 1500,
+            "playing": true,
+            "index": 435,
+            "phase": "transition",
+            "transitions": 404,
+            "layers": 2,
+            "animations": 2,
+            "cache": 3,
+            "hasTimer": false,
+            "failed": 0,
+            "effect": "flip",
+            "memory": {
+              "workingSetSize": 142548,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 61760
+            },
+            "totalPrivateBytes": 808184
+          },
+          {
+            "seconds": 1530,
+            "playing": true,
+            "index": 140,
+            "phase": "transition",
+            "transitions": 412,
+            "layers": 2,
+            "animations": 2,
+            "cache": 3,
+            "hasTimer": false,
+            "failed": 0,
+            "effect": "zoom",
+            "memory": {
+              "workingSetSize": 136960,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 59196
+            },
+            "totalPrivateBytes": 1058660
+          },
+          {
+            "seconds": 1560,
+            "playing": true,
+            "index": 426,
+            "phase": "hold",
+            "transitions": 421,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "cube",
+            "memory": {
+              "workingSetSize": 139348,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 60344
+            },
+            "totalPrivateBytes": 719560
+          },
+          {
+            "seconds": 1590,
+            "playing": true,
+            "index": 61,
+            "phase": "hold",
+            "transitions": 429,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "zoom",
+            "memory": {
+              "workingSetSize": 136244,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 58368
+            },
+            "totalPrivateBytes": 922120
+          },
+          {
+            "seconds": 1621,
+            "playing": true,
+            "index": 492,
+            "phase": "hold",
+            "transitions": 437,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "slide-x",
+            "memory": {
+              "workingSetSize": 137740,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 59156
+            },
+            "totalPrivateBytes": 1010880
+          },
+          {
+            "seconds": 1651,
+            "playing": true,
+            "index": 332,
+            "phase": "hold",
+            "transitions": 445,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "blinds-x",
+            "memory": {
+              "workingSetSize": 134144,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 57824
+            },
+            "totalPrivateBytes": 722756
+          },
+          {
+            "seconds": 1681,
+            "playing": true,
+            "index": 461,
+            "phase": "hold",
+            "transitions": 453,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "slide-x",
+            "memory": {
+              "workingSetSize": 135100,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 57412
+            },
+            "totalPrivateBytes": 1065928
+          },
+          {
+            "seconds": 1711,
+            "playing": true,
+            "index": 367,
+            "phase": "hold",
+            "transitions": 461,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "blinds-y",
+            "memory": {
+              "workingSetSize": 137328,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 60196
+            },
+            "totalPrivateBytes": 729652
+          },
+          {
+            "seconds": 1741,
+            "playing": true,
+            "index": 94,
+            "phase": "hold",
+            "transitions": 469,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "blinds-x",
+            "memory": {
+              "workingSetSize": 135844,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 58720
+            },
+            "totalPrivateBytes": 1004868
+          },
+          {
+            "seconds": 1771,
+            "playing": true,
+            "index": 245,
+            "phase": "hold",
+            "transitions": 477,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "slide-x",
+            "memory": {
+              "workingSetSize": 135496,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 59340
+            },
+            "totalPrivateBytes": 590644
+          },
+          {
+            "seconds": 1801,
+            "playing": true,
+            "index": 17,
+            "phase": "hold",
+            "transitions": 485,
+            "layers": 1,
+            "animations": 0,
+            "cache": 3,
+            "hasTimer": true,
+            "failed": 0,
+            "effect": "cube",
+            "memory": {
+              "workingSetSize": 136216,
+              "peakWorkingSetSize": 164056,
+              "privateBytes": 59164
+            },
+            "totalPrivateBytes": 666688
+          }
+        ]
+      }
+    },
+    {
+      "check": "屏蔽 HTTP 与 HTTPS 后全流程离线运行",
+      "passed": true
+    }
+  ],
+  "consoleErrors": []
+}

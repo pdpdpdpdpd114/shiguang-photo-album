@@ -1,0 +1,199 @@
+{
+  "packaged": true,
+  "version": "1.0.0",
+  "checks": [
+    {
+      "check": "隔离页面与桌面接口",
+      "passed": true
+    },
+    {
+      "check": "首次启动与六张离线示例",
+      "passed": true
+    },
+    {
+      "check": "中文文件、重名重复、损坏文件与原件移动",
+      "passed": true
+    },
+    {
+      "check": "照片与音乐持久化",
+      "passed": true
+    },
+    {
+      "check": "图片解码与竖图方向：EXIF-旋转竖图.jpg",
+      "passed": true,
+      "detail": {
+        "width": 480,
+        "height": 640
+      }
+    },
+    {
+      "check": "图片解码与竖图方向：动态图片.gif",
+      "passed": true,
+      "detail": {
+        "width": 480,
+        "height": 640
+      }
+    },
+    {
+      "check": "图片解码与竖图方向：竖图方向-avif.avif",
+      "passed": true,
+      "detail": {
+        "width": 480,
+        "height": 640
+      }
+    },
+    {
+      "check": "图片解码与竖图方向：竖图方向-bmp.bmp",
+      "passed": true,
+      "detail": {
+        "width": 480,
+        "height": 640
+      }
+    },
+    {
+      "check": "图片解码与竖图方向：竖图方向-gif.gif",
+      "passed": true,
+      "detail": {
+        "width": 480,
+        "height": 640
+      }
+    },
+    {
+      "check": "图片解码与竖图方向：竖图方向-jpg.jpg",
+      "passed": true,
+      "detail": {
+        "width": 480,
+        "height": 640
+      }
+    },
+    {
+      "check": "图片解码与竖图方向：竖图方向-png.png",
+      "passed": true,
+      "detail": {
+        "width": 480,
+        "height": 640
+      }
+    },
+    {
+      "check": "图片解码与竖图方向：竖图方向-webp.webp",
+      "passed": true,
+      "detail": {
+        "width": 480,
+        "height": 640
+      }
+    },
+    {
+      "check": "HEIC 转换失败单独提示",
+      "passed": true
+    },
+    {
+      "check": "HEIC 离线转换：ios18-IMG_2314.HEIC",
+      "passed": true,
+      "detail": {
+        "width": 5712,
+        "height": 4284
+      }
+    },
+    {
+      "check": "HEIC 离线转换：iphone-15-pro.heic",
+      "passed": true,
+      "detail": {
+        "width": 3024,
+        "height": 4032
+      }
+    },
+    {
+      "check": "HEIC 离线转换：libheif-example.heic",
+      "passed": true,
+      "detail": {
+        "width": 1280,
+        "height": 854
+      }
+    },
+    {
+      "check": "导入结束后释放 HEIC 转换线程与图片解码进程",
+      "passed": true
+    },
+    {
+      "check": "本地音乐解码与分段读取",
+      "passed": true,
+      "detail": {
+        "length": 3,
+        "range": 206
+      }
+    },
+    {
+      "check": "动效：fade",
+      "passed": true
+    },
+    {
+      "check": "动效：slide-x",
+      "passed": true
+    },
+    {
+      "check": "动效：slide-y",
+      "passed": true
+    },
+    {
+      "check": "动效：zoom",
+      "passed": true
+    },
+    {
+      "check": "动效：kenburns",
+      "passed": true
+    },
+    {
+      "check": "动效：flip",
+      "passed": true
+    },
+    {
+      "check": "动效：cube",
+      "passed": true
+    },
+    {
+      "check": "动效：blinds-x",
+      "passed": true
+    },
+    {
+      "check": "动效：blinds-y",
+      "passed": true
+    },
+    {
+      "check": "动效：mosaic",
+      "passed": true
+    },
+    {
+      "check": "暂停、继续与四十次快速切换",
+      "passed": true
+    },
+    {
+      "check": "二十四次重叠切换清理旧动画",
+      "passed": true
+    },
+    {
+      "check": "减少动态效果时柔和淡化",
+      "passed": true
+    },
+    {
+      "check": "退出后清理动画与计时器",
+      "passed": true
+    },
+    {
+      "check": "开始放映时停止整理页的音乐试听",
+      "passed": true
+    },
+    {
+      "check": "音乐实际播放、循环、同步暂停恢复、音量与静音",
+      "passed": true
+    },
+    {
+      "check": "桌面全屏进入与退出",
+      "passed": true
+    },
+    {
+      "check": "屏蔽 HTTP 与 HTTPS 后全流程离线运行",
+      "passed": true
+    }
+  ],
+  "consoleErrors": []
+}
