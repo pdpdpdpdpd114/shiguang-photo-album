@@ -11,6 +11,7 @@ app.setName('ShiguangPhotoAlbum');
 protocol.registerSchemesAsPrivileged([{ scheme: 'album', privileges: { standard: true, secure: true, supportFetchAPI: true, stream: true, corsEnabled: true } }]);
 const diagnosticArg = process.argv.find(arg => arg.startsWith('--album-diagnostics='));
 const diagnosticRoot = diagnosticArg?.slice('--album-diagnostics='.length);
+const soakSeconds = Number(process.argv.find(arg => arg.startsWith('--soak-seconds='))?.slice('--soak-seconds='.length) || 1800);
 if (diagnosticRoot) app.setPath('userData', path.join(path.resolve(diagnosticRoot), 'user-data'));
 const dev = process.argv.includes('--dev') && !app.isPackaged;
 let window: BrowserWindow | null = null;
@@ -131,7 +132,7 @@ async function createWindow(): Promise<void> {
   if (diagnosticRoot) {
     try {
       const { runDiagnostics } = await import('./diagnostics.js');
-      await runDiagnostics({ root: diagnosticRoot, store, window, soak: process.argv.includes('--soak'), appPath: app.getAppPath() });
+      await runDiagnostics({ root: diagnosticRoot, store, window, soak: process.argv.includes('--soak'), soakSeconds, appPath: app.getAppPath() });
       app.exit(0);
     } catch (error) {
       await fs.mkdir(diagnosticRoot, { recursive: true });

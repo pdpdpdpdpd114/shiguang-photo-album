@@ -1,15 +1,15 @@
 import type { BrowserWindow } from 'electron';
-import { app, nativeImage } from 'electron';
+import { app, nativeImage, screen } from 'electron';
 import * as fs from 'node:fs/promises';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import { LibraryStore } from './storage.js';
 
-type Context = { root: string; store: LibraryStore; window: BrowserWindow; soak: boolean; appPath: string; };
+type Context = { root: string; store: LibraryStore; window: BrowserWindow; soak: boolean; soakSeconds: number; appPath: string; };
 const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 export async function runDiagnostics(context: Context): Promise<void> {
-  const { store, window, soak, appPath } = context;
+  const { store, window, soak, soakSeconds, appPath } = context;
   const externalRequests: string[] = [];
   window.webContents.session.webRequest.onBeforeRequest({ urls: ['http://*/*', 'https://*/*'] }, (details, callback) => {
     externalRequests.push(new URL(details.url).hostname); callback({ cancel: true });
@@ -152,8 +152,29 @@ export async function runDiagnostics(context: Context): Promise<void> {
   await evaluate(`window.__albumDiagnostics.settings(${JSON.stringify(albumId)}, {volume: .25, muted: true})`); await wait(100);
   assert.equal(await evaluate('window.__playerDiagnostics.audio().volume'), .25); assert.equal(await evaluate('window.__playerDiagnostics.audio().muted'), true);
   passed('音乐实际播放、循环、同步暂停恢复、音量与静音');
-  assert.equal(await evaluate('window.albumApi.toggleFullscreen()'), true); await wait(150); assert(window.isFullScreen());
-  assert.equal(await evaluate('window.albumApi.toggleFullscreen()'), false); passed('桌面全屏进入与退出');
+  const beforeFullscreen = window.getBounds();
+  const displayBounds = screen.getDisplayMatching(beforeFullscreen).bounds;
+  const savedFit = await evaluate('window.__albumDiagnostics.state().library.albums.find(a => a.id === window.__albumDiagnostics.state().playing.id).settings.fit');
+  await evaluate(`window.__albumDiagnostics.settings(${JSON.stringify(albumId)}, { fit: "cover" })`);
+  await until('document.querySelector(".slide-image")?.style.objectFit === "cover"');
+  await evaluate('document.querySelector(".player").dispatchEvent(new KeyboardEvent("keydown", { code: "F11", bubbles: true }))');
+  await until('document.querySelector(".player.is-fullscreen .player-chrome")?.getAttribute("aria-hidden") === "true"');
+  await wait(250); assert(window.isFullScreen());
+  assert.deepEqual(window.getBounds(), displayBounds);
+  assert.deepEqual(window.getContentBounds(), displayBounds);
+  assert.equal(await evaluate('getComputedStyle(document.querySelector(".player")).cursor'), 'none');
+  assert.equal(await evaluate('document.querySelector(".player-show-controls").getAttribute("aria-hidden")'), 'true');
+  assert.equal(await evaluate('document.querySelector(".slide-image").style.objectFit'), 'contain');
+  assert.equal(await evaluate('window.__albumDiagnostics.state().library.albums.find(a => a.id === window.__albumDiagnostics.state().playing.id).settings.fit'), 'cover');
+  await fs.writeFile(path.join(root, '04-fullscreen.png'), (await window.webContents.capturePage()).toPNG());
+  passed('F11 全屏覆盖屏幕与任务栏区域、隐藏边框文字和鼠标、完整显示照片', { displayBounds, fit: 'contain' });
+  await evaluate('document.querySelector(".player").dispatchEvent(new KeyboardEvent("keydown", { code: "Escape", bubbles: true }))');
+  await until('!document.querySelector(".player.is-fullscreen") && document.querySelector(".player-chrome")?.getAttribute("aria-hidden") === "false"');
+  await wait(250); assert.equal(window.isFullScreen(), false);
+  assert.deepEqual(window.getBounds(), beforeFullscreen);
+  assert.equal(await evaluate('document.querySelector(".slide-image").style.objectFit'), 'cover');
+  await evaluate(`window.__albumDiagnostics.settings(${JSON.stringify(albumId)}, { fit: ${JSON.stringify(savedFit)} })`);
+  passed('Esc 退出全屏并恢复原窗口大小、控制栏与照片显示设置');
   // Native fullscreen can make an offscreen test window visible on Windows.
   // Return it to the background as soon as the fullscreen assertion finishes.
   window.hide();
@@ -173,7 +194,7 @@ export async function runDiagnostics(context: Context): Promise<void> {
     await store.saveSettings(albumId, { holdSeconds: 3, effect: 'random', theme: 'electric', randomOrder: true });
     await evaluate('window.__albumDiagnostics.reload()'); await evaluate(`window.__albumDiagnostics.play(${JSON.stringify(albumId)})`);
     await until('Boolean(window.__playerDiagnostics) && window.__playerDiagnostics.debug().phase === "hold"');
-    const started = Date.now(), duration = 30 * 60 * 1000;
+    const started = Date.now(), duration = soakSeconds * 1000;
     const samples: object[] = [];
     while (Date.now() - started < duration) {
       await wait(30000);
@@ -183,13 +204,14 @@ export async function runDiagnostics(context: Context): Promise<void> {
       const memory = metrics.find(metric => metric.pid === window.webContents.getOSProcessId())!.memory;
       const totalPrivateBytes = metrics.reduce((sum, metric) => sum + (metric.memory.privateBytes || 0), 0);
       samples.push({ seconds: Math.round((Date.now() - started) / 1000), ...debug, memory, totalPrivateBytes });
-      await fs.writeFile(path.join(root, 'soak-progress.json'), JSON.stringify({ elapsedSeconds: Math.round((Date.now() - started) / 1000), targetSeconds: 1800, samples }, null, 2));
+      await fs.writeFile(path.join(root, 'soak-progress.json'), JSON.stringify({ elapsedSeconds: Math.round((Date.now() - started) / 1000), targetSeconds: soakSeconds, samples }, null, 2));
     }
-    const final = await evaluate<any>('window.__playerDiagnostics.debug()'); assert(final.transitions > 400);
+    const final = await evaluate<any>('window.__playerDiagnostics.debug()'); assert(final.transitions > Math.floor(duration / 30000 * 6));
     const privateMemory = samples.map((s: any) => s.memory.privateBytes ?? s.memory.workingSetSize);
     const secondHalf = privateMemory.slice(Math.floor(privateMemory.length / 2));
     assert(Math.max(...secondHalf) - Math.min(...secondHalf) < 250 * 1024, '持续播放后内存增长超过 250 MB');
-    passed('500 张混合图片持续播放 30 分钟', { seconds: Math.round((Date.now() - started) / 1000), transitions: final.transitions, samples });
+    const durationLabel = soakSeconds % 3600 === 0 ? `${soakSeconds / 3600} 小时` : `${Math.round(soakSeconds / 60)} 分钟`;
+    passed(`500 张混合图片持续播放 ${durationLabel}`, { seconds: Math.round((Date.now() - started) / 1000), transitions: final.transitions, samples });
     await evaluate('window.__albumDiagnostics.stop()');
   }
   assert.equal(errors.length, 0, errors.join('\n'));

@@ -4,16 +4,19 @@ import path from 'node:path';
 import electron from 'electron';
 
 const soak = process.argv.includes('--soak');
+const durationArg = process.argv.find(arg => arg.startsWith('--duration-seconds='));
+const durationSeconds = durationArg ? Number(durationArg.slice('--duration-seconds='.length)) : 1800;
+if (!Number.isSafeInteger(durationSeconds) || durationSeconds < 1) throw new Error('--duration-seconds must be a positive integer');
 const exeArg = process.argv.find(arg => arg.startsWith('--exe='));
 const testName = process.argv.find(arg => arg.startsWith('--name='))?.slice(7) || (soak ? 'soak' : 'desktop');
 const reuseArg = process.argv.find(arg => arg.startsWith('--reuse='));
 const root = reuseArg ? path.resolve(reuseArg.slice(8)) : path.resolve('.test-data', `${testName}-${Date.now()}`); await mkdir(root, { recursive: true });
 console.log(`Test data: ${root}`);
-const args = [...(exeArg ? [] : ['.']), `--album-diagnostics=${root}`, ...(soak ? ['--soak'] : [])];
+const args = [...(exeArg ? [] : ['.']), `--album-diagnostics=${root}`, ...(soak ? ['--soak', `--soak-seconds=${durationSeconds}`] : [])];
 const childEnv = { ...process.env, ELECTRON_ENABLE_LOGGING: '1' }; delete childEnv.ELECTRON_RUN_AS_NODE;
 const child = spawn(exeArg ? path.resolve(exeArg.slice(6)) : electron, args, { stdio: 'inherit', windowsHide: true, env: childEnv });
 let finished = false;
-const timeout = setTimeout(() => { child.kill(); console.error('Desktop test timed out'); }, soak ? 40 * 60 * 1000 : 5 * 60 * 1000);
+const timeout = setTimeout(() => { child.kill(); console.error('Desktop test timed out'); }, soak ? (durationSeconds + 5 * 60) * 1000 : 5 * 60 * 1000);
 const interval = soak ? setInterval(async () => {
   if (finished) return;
   try { const status = JSON.parse(await readFile(path.join(root, 'soak-progress.json'), 'utf8')); console.log(`Playback ${status.elapsedSeconds}/${status.targetSeconds}s; ${status.samples.at(-1)?.transitions} transitions`); } catch {}
